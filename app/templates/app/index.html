@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Django Application</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+</head>
+
+<body>
+    <div align="center">
+        <h1> Welcome to film review classification </h1>
+
+
+        <h3> Enter the Film Title and your review. Click the "submit" button and may the Force be with you </h3>
+        <h5>Note: We use a language model for classification, please wait while the application is preparing for the first use</h5>
+
+
+            <form action="{% url 'result' %}">
+
+                {% csrf_token %}
+                Title <input type="text" required name="Title" /> <br /> <br />
+                Review <input type="text" required name="Review" /> <br /> <br />
+
+                <input type="submit" name="" value="submit" />
+            </form>
+</div>
+</body>
+</html>
